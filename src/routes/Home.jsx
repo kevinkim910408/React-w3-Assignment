@@ -8,6 +8,8 @@ import styled from "styled-components";
 // components
 import ScoreComponent from "../components/ScoreComponent";
 
+
+
 const Home = () => {
     // 기본적으로 요일들을 가지고 있는 배열
     const weekArr = ['일', '월', '화', '수', '목', '금', '토'];
@@ -43,6 +45,7 @@ const Home = () => {
                 <Title>내 일주일은?</Title>
                     {/* 위의 map()을 이용해서 아래처럼 부르고 있다.  */}
                     {ScoreComponents}
+  
                 <FooterWrap>
                     <h1>평균 평점</h1>
                     <h1>{aver}</h1>

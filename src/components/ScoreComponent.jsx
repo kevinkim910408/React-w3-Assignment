@@ -5,6 +5,7 @@ import React from "react";
 // styled
 import styled from "styled-components";
 
+
 const ScoreComponent = ({day, random}) => {
     const indexes = [0,1,2,3,4];
     let Scores = indexes.map((value, index)=>(<Score key={index} num={value} random={random}></Score>))
