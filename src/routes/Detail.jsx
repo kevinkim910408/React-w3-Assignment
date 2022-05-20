@@ -20,12 +20,12 @@ const Detail = (props) => {
             <Title>
                 <DayHighlight>{day}요일</DayHighlight> 평점 남기기
             </Title>
-                <ScoresWrap>
-                    <DetailScores></DetailScores>
-                </ScoresWrap>
-                <FooterWrap>
-                    <ConfirmButton>평점 남기기</ConfirmButton>
-                </FooterWrap>
+            <ScoresWrap>
+                <DetailScores></DetailScores>
+            </ScoresWrap>
+            <FooterWrap>
+                <ConfirmButton to={`/`}>평점 남기기</ConfirmButton>
+            </FooterWrap>
         </Container>
     )
 }
@@ -59,21 +59,14 @@ const ScoresWrap = styled.div`
     margin-top: 50px;
 `;
 
-const Score = styled.div`
-   width: 30px;
-   height: 50px;
-   border-radius: 50px;
-   border: 1px solid #000;
-   margin: 10px;
-`;
-
 const FooterWrap = styled.div`
     text-align: center;
     color:var(--purple);
     line-height: 20px;
+    margin-top: 80px;
 `;
 
-const ConfirmButton = styled.button`
+const ConfirmButton = styled(Link)`
     padding: 20px;
     width: 200px;
     border: none;
@@ -81,8 +74,7 @@ const ConfirmButton = styled.button`
     font-size: 20px;
     color: var(--white);
     border-radius: 10px;
-    margin-top: 30px;
+    text-decoration: none;
 `;
-
 
 export default Detail;
