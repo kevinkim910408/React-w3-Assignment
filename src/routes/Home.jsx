@@ -1,6 +1,6 @@
 /* Home.jsx*/
 
-import React from "react";
+import React, { useState } from "react";
 
 // styled-components
 import styled from "styled-components";
@@ -15,8 +15,9 @@ const Home = () => {
     const today = new Date().getDay();
     // map을 이용해서 각 요일들의 index에 접근할 예정
     const indexes = [0,1,2,3,4,5,6]
-    // 랜덤 생성
-    const rand = [Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5)]
+    // 랜덤 생성 - reset하면 공 칠한것도 날려야해서 state 관리
+    let [rand, setRand] = useState([Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5)]);
+    
     // map을 이용해서 ScoreComponent를 한줄로 총 7줄을 부른다
     const ScoreComponents =  
         indexes.map((value,index)=>(<ScoreComponent key={index} 
@@ -27,8 +28,15 @@ const Home = () => {
     // 평점을 내기위해 random의 값들을 모두 더해준다,
     // 초기값이 7인 이유는.. rand가 0~4까지 라서 실제눈에보이는거 보다 1씩 작다 ㅠㅠㅠㅠ
     const sum = rand.reduce((prev, value)=> {return prev + value},7);
-    // 평균구하기 = 전체합/7,  .toFixed(1) - 소수점 한자리까지 보여줌
-    const aver = (sum / 7).toFixed(1);
+    // 평균구하기 = 전체합/7,  .toFixed(1) - 소수점 한자리까지 보여줌, reset으로 html 계속 돌려야해서 state 관리
+    let [aver, setAver] = useState((sum / 7).toFixed(1));
+    // 리셋 버튼 기능
+    const onReset = () =>{
+        console.log("clicked")
+        setAver(()=>aver=0);
+        setRand(()=>rand=[]);
+    }
+
     return (
         <>
             <Container>
@@ -38,7 +46,7 @@ const Home = () => {
                 <FooterWrap>
                     <h1>평균 평점</h1>
                     <h1>{aver}</h1>
-                    <ResetButton>Reset</ResetButton>
+                    <ResetButton onClick={onReset}>Reset</ResetButton>
                 </FooterWrap>
             </Container>
         </>
