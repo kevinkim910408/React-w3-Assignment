@@ -18,7 +18,7 @@ const Home = () => {
     // 랜덤 생성
     const rand = [Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5)]
     // map을 이용해서 ScoreComponent를 한줄로 총 7줄을 부른다
-    const mainContents =  
+    const ScoreComponents =  
         indexes.map((value,index)=>(<ScoreComponent key={index} 
                                                     day={weekArr[(today+value)%7]}
                                                     random={rand[value]}
@@ -28,7 +28,7 @@ const Home = () => {
             <Container>
                 <Title>내 일주일은?</Title>
                     {/* 위의 map()을 이용해서 아래처럼 부르고 있다.  */}
-                    {mainContents}
+                    {ScoreComponents}
                 <FooterWrap>
                     <h1>평균 평점</h1>
                     <h1>3.9</h1>

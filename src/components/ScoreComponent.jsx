@@ -6,16 +6,15 @@ import React from "react";
 import styled from "styled-components";
 
 const ScoreComponent = ({day, random}) => {
+    const indexes = [0,1,2,3,4];
+    let Scores = indexes.map((value, index)=>(<Score key={index} num={value} random={random}></Score>))
+
     return (
         <>
         <ContentsWrap>
             <h3>{day}</h3>
             <ScoresWrap>
-                <Score num={0} random={random}></Score>
-                <Score num={1} random={random}></Score>
-                <Score num={2} random={random}></Score>
-                <Score num={3} random={random}></Score>
-                <Score num={4} random={random}></Score>
+                {Scores}
             </ScoresWrap>
             <ArrowButton />
         </ContentsWrap>
