@@ -5,17 +5,17 @@ import React from "react";
 // styled
 import styled from "styled-components";
 
-const ScoreComponent = (props) => {
+const ScoreComponent = ({day, random}) => {
     return (
         <>
         <ContentsWrap>
-            <h3>{props.day}</h3>
+            <h3>{day}</h3>
             <ScoresWrap>
-                <Score></Score>
-                <Score></Score>
-                <Score></Score>
-                <Score></Score>
-                <Score></Score>
+                <Score num={0} random={random}></Score>
+                <Score num={1} random={random}></Score>
+                <Score num={2} random={random}></Score>
+                <Score num={3} random={random}></Score>
+                <Score num={4} random={random}></Score>
             </ScoresWrap>
             <ArrowButton />
         </ContentsWrap>
@@ -58,4 +58,6 @@ const Score = styled.div`
    border-radius: 50%;
    border: 1px solid #000;
    margin: 10px;
+   background-color: ${props => props.num <= props.random  ? 'var(--yellow)' : 'var(--grey)'}
+
 `;
