@@ -23,6 +23,12 @@ const Home = () => {
                                                     day={weekArr[(today+value)%7]}
                                                     random={rand[value]}
                                                     />));
+
+    // 평점을 내기위해 random의 값들을 모두 더해준다,
+    // 초기값이 7인 이유는.. rand가 0~4까지 라서 실제눈에보이는거 보다 1씩 작다 ㅠㅠㅠㅠ
+    const sum = rand.reduce((prev, value)=> {return prev + value},7);
+    // 평균구하기 = 전체합/7,  .toFixed(1) - 소수점 한자리까지 보여줌
+    const aver = (sum / 7).toFixed(1);
     return (
         <>
             <Container>
@@ -31,7 +37,7 @@ const Home = () => {
                     {ScoreComponents}
                 <FooterWrap>
                     <h1>평균 평점</h1>
-                    <h1>3.9</h1>
+                    <h1>{aver}</h1>
                     <ResetButton>Reset</ResetButton>
                 </FooterWrap>
             </Container>
