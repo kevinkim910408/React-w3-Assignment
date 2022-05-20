@@ -5,11 +5,17 @@ import React from "react";
 // styled-components
 import styled from "styled-components";
 
+// React Router
+import { Link, useParams } from 'react-router-dom';
+
 const Detail = (props) => {
+
+    const {day} = useParams();
+
     return (
         <Container>
             <Title>
-                <DayHighlight>월요일</DayHighlight> 평점 남기기
+                <DayHighlight>{day}요일</DayHighlight> 평점 남기기
             </Title>
                 <ScoresWrap>
                     <Score></Score>

@@ -5,6 +5,8 @@ import React from "react";
 // styled
 import styled from "styled-components";
 
+// Router
+import { Link } from 'react-router-dom';
 
 const ScoreComponent = ({day, random}) => {
     const indexes = [0,1,2,3,4];
@@ -17,7 +19,7 @@ const ScoreComponent = ({day, random}) => {
             <ScoresWrap>
                 {Scores}
             </ScoresWrap>
-            <ArrowButton />
+            <ArrowButton to={`/detail/${day}`}></ArrowButton>
         </ContentsWrap>
         </>
     )
@@ -43,7 +45,7 @@ const ScoresWrap = styled.div`
 `;
 
 // 버튼 모양을 화살표로 만들기
-const ArrowButton = styled.button`
+const ArrowButton = styled(Link)`
     width: 0;
     height: 0;
     border-bottom: 20px solid #fff;
