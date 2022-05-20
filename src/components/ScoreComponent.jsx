@@ -3,11 +3,11 @@ import React from "react";
 // styled
 import styled from "styled-components";
 
-const ScoreComponent = (prop) => {
+const ScoreComponent = (props) => {
     return (
         <>
         <ContentsWrap>
-            <h3>월</h3>
+            <h3>{props.day}</h3>
             <ScoresWrap>
                 <Score></Score>
                 <Score></Score>

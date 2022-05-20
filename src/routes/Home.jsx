@@ -8,17 +8,19 @@ import ScoreComponent from "../components/ScoreComponent";
 
 
 const Home = () => {
+    const weekArr = ['일', '월', '화', '수', '목', '금', '토'];
+    const today = new Date().getDay();
     return (
         <>
             <Container>
                 <Title>내 일주일은?</Title>
-                <ScoreComponent />
-                <ScoreComponent />
-                <ScoreComponent />
-                <ScoreComponent />
-                <ScoreComponent />
-                <ScoreComponent />
-                <ScoreComponent />
+                <ScoreComponent day={weekArr[today%7]}/>
+                <ScoreComponent day={weekArr[today%7]}/>
+                <ScoreComponent day={weekArr[today%7]}/>
+                <ScoreComponent day={weekArr[today%7]}/>
+                <ScoreComponent day={weekArr[today%7]}/>
+                <ScoreComponent day={weekArr[today%7]}/>
+                <ScoreComponent day={weekArr[today%7]}/>
                 <FooterWrap>
                     <h1>평균 평점</h1>
                     <h1>3.9</h1>
