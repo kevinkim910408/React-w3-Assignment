@@ -8,6 +8,8 @@ import styled from "styled-components";
 // Router
 import { Link } from 'react-router-dom';
 
+
+
 const ScoreComponent = ({day, random}) => {
     const indexes = [0,1,2,3,4];
     let Scores = indexes.map((value, index)=>(<Score key={index} num={value} random={random}></Score>))

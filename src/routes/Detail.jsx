@@ -8,6 +8,9 @@ import styled from "styled-components";
 // React Router
 import { Link, useParams } from 'react-router-dom';
 
+// components
+import DetailScores from "../components/DetailScores";
+
 const Detail = (props) => {
 
     const {day} = useParams();
@@ -18,11 +21,7 @@ const Detail = (props) => {
                 <DayHighlight>{day}요일</DayHighlight> 평점 남기기
             </Title>
                 <ScoresWrap>
-                    <Score></Score>
-                    <Score></Score>
-                    <Score></Score>
-                    <Score></Score>
-                    <Score></Score>
+                    <DetailScores></DetailScores>
                 </ScoresWrap>
                 <FooterWrap>
                     <ConfirmButton>평점 남기기</ConfirmButton>

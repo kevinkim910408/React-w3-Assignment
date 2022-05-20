@@ -1,0 +1,16 @@
+.score {
+    width: 30px;
+    height: 50px;
+    margin: 0 0.5rem; 
+    border-radius: 30px;
+    background-color: var(--grey);
+    border: 0;
+  }
+
+.score:hover {
+  background-color: var(--yellow);
+}
+
+.clickedScore {
+  background-color: var(--yellow);
+}
