@@ -75,7 +75,6 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-
 const FooterWrap = styled.div`
     text-align: center;
     color:var(--purple);

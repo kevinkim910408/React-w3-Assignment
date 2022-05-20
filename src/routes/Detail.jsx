@@ -46,7 +46,7 @@ const Title = styled.h1`
 `;
 
 const DayHighlight = styled.span`
-    background-color: var(--yellow);
+    background-color: var(--orange);
     padding: 10px;
     border-radius: 20px;
 `;

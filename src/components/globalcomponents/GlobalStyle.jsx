@@ -12,12 +12,12 @@ ${normalize} // normalize
 }
 
 body {
-    background-color:var(--purple)
+    background-color:var(--pink)
 }
 
 :root {
     --purple: #8e44ad;
-    --grey: #bdc3c7;
+    --gray: #bdc3c7;
     --yellow: #fff200;
     --pink: #ffcccc;
     --orange: #ff9f1a;

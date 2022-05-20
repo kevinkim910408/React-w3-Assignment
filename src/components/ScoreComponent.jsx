@@ -60,8 +60,7 @@ const Score = styled.div`
    width: 30px;
    height: 30px;
    border-radius: 50%;
-   border: 1px solid #000;
    margin: 10px;
-   background-color: ${props => props.num <= props.random  ? 'var(--yellow)' : 'var(--grey)'}
+   background-color: ${props => props.num <= props.random  ? 'var(--yellow)' : 'var(--gray)'}
 
 `;
