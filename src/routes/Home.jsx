@@ -1,6 +1,10 @@
 import React from "react";
 
+// styled
 import styled from "styled-components";
+
+// components
+import ScoreComponent from "../components/ScoreComponent";
 
 
 const Home = () => {
@@ -8,25 +12,24 @@ const Home = () => {
         <>
             <Container>
                 <Title>내 일주일은?</Title>
-                <ContentsWrapContents>
-                    <h3>월</h3>
-                    <ContentsWrapScore>
-                        <Score></Score>
-                        <Score></Score>
-                        <Score></Score>
-                        <Score></Score>
-                        <Score></Score>
-                    </ContentsWrapScore>
-                    <Button />
-                </ContentsWrapContents>
+                <ScoreComponent />
+                <ScoreComponent />
+                <ScoreComponent />
+                <ScoreComponent />
+                <ScoreComponent />
+                <ScoreComponent />
+                <ScoreComponent />
+                <FooterWrap>
+                    <h1>평균 평점</h1>
+                    <h1>3.9</h1>
+                    <ResetButton>Reset</ResetButton>
+                </FooterWrap>
             </Container>
         </>
     )
 }
 
-
 export default Home;
-
 
 const Container = styled.div`
   max-width: 350px;
@@ -43,34 +46,19 @@ const Title = styled.h1`
   text-align: center;
 `;
 
-const ContentsWrapContents = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
+
+const FooterWrap = styled.div`
+    text-align: center;
+    color:var(--purple);
+    line-height: 20px;
 `;
 
-const ContentsWrapScore = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-`;
-
-const Score = styled.div`
-   width: 30px;
-   height: 30px;
-   border-radius: 50%;
-   border: 1px solid #000;
-   margin: 10px;
-`;
-
-// 버튼 모양을 화살표로 만들기
-const Button = styled.button`
-    width: 0;
-    height: 0;
-    border-bottom: 20px solid #fff;
-    border-left: 30px solid var(--purple);
-    border-top: 20px solid #fff;
-    border-right: 0px
+const ResetButton = styled.button`
+    padding: 20px;
+    width: 200px;
+    border: none;
+    background-color: var(--purple);
+    font-size: 20px;
+    color: var(--white);
+    border-radius: 10px;
 `;
