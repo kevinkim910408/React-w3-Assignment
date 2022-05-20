@@ -1,16 +1,21 @@
+/* Home.jsx*/
+
 import React from "react";
 
-// styled
+// styled-components
 import styled from "styled-components";
 
 // components
 import ScoreComponent from "../components/ScoreComponent";
 
-
 const Home = () => {
+    // 기본적으로 요일들을 가지고 있는 배열
     const weekArr = ['일', '월', '화', '수', '목', '금', '토'];
+    // 오늘 날짜 계산
     const today = new Date().getDay();
+    // map을 이용해서 각 요일들의 index에 접근할 예정
     const indexes = [0,1,2,3,4,5,6]
+    // map을 이용해서 ScoreComponent를 한줄로 총 7줄을 부른다
     const mainContents =  
         indexes.map((value,index)=>(<ScoreComponent key={index} 
                                                     day={weekArr[(today+value)%7]}
@@ -19,6 +24,7 @@ const Home = () => {
         <>
             <Container>
                 <Title>내 일주일은?</Title>
+                    {/* 위의 map()을 이용해서 아래처럼 부르고 있다.  */}
                     {mainContents}
                 <FooterWrap>
                     <h1>평균 평점</h1>
@@ -31,6 +37,8 @@ const Home = () => {
 }
 
 export default Home;
+
+// 여기서부턴 Styled Components = CSS Part
 
 const Container = styled.div`
   max-width: 350px;

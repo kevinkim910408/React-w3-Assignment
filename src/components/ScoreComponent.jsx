@@ -1,3 +1,5 @@
+/* ScoreComponent.jsx*/
+
 import React from "react";
 
 // styled
@@ -22,6 +24,9 @@ const ScoreComponent = (props) => {
 }
 
 export default ScoreComponent;
+
+
+// Styled-Components 파트 
 
 const ContentsWrap = styled.div`
     display: flex;
