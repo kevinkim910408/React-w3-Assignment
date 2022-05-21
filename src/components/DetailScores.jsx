@@ -37,14 +37,15 @@ function DetailScores(){
         }
       }
       
-      // 시작하자마자, 키보드 이벤트 활성화
+      // useEffect() - 이걸 포함한 컴포넌트나 페이지가 불릴때 딱한번 실행되는 기능
       useEffect(() => {
         window.addEventListener('keydown', handleKeyDown)
-        //console.log("mount")
+        console.log("mount")
         
+        // 이 페이지를 종료할때 딱 한번 불러요
         return () => {
           window.removeEventListener('keydown', handleKeyDown)
-          //console.log("unmount")
+          console.log("unmount")
         }
       })
 

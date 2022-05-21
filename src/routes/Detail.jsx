@@ -13,7 +13,7 @@ import DetailScores from "../components/DetailScores";
 
 const Detail = (props) => {
 
-    const {day} = useParams();
+    const { day } = useParams();
 
     return (
         <Container>
