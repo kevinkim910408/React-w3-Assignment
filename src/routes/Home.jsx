@@ -17,9 +17,13 @@ const Home = () => {
     const today = new Date().getDay();
     // map을 이용해서 각 요일들의 index에 접근할 예정
     const indexes = [0,1,2,3,4,5,6]
-    // 랜덤 생성 - reset하면 공 칠한것도 날려야해서 state 관리
-    let [rand, setRand] = useState([Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5)]);
-    
+    // 랜덤 생성 - reset하면 공 칠한것도 날려야해서 state 관리 - 노가다
+    //let [rand, setRand] = useState([Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5),Math.floor(Math.random() * 5)]);
+    // 랜덤 생성 - map을 이용해서 조금 더 알고리즘답게 관리 
+    let newArr = [0,0,0,0,0,0,0];
+    newArr = newArr.map((value)=>(value = Math.floor(Math.random() * 5)));
+    let [rand, setRand] = useState([...newArr]);
+
     // map을 이용해서 ScoreComponent를 한줄로 총 7줄을 부른다
     const ScoreComponents =  
         indexes.map((value,index)=>(<ScoreComponent key={index} 
