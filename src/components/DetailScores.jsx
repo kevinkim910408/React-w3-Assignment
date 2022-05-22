@@ -4,12 +4,12 @@ import { click } from "@testing-library/user-event/dist/click";
 import React from "react";
 
 // Components
-import { useState, useEffect} from "react";
+import { useState, useEffect } from "react";
 
 import "./DetailScores.Module.css"
 
-function DetailScores(){
-        // html에서 자주 변하는건 state로 빼준다.
+function DetailScores() {
+    // html에서 자주 변하는건 state로 빼준다.
     const [clicked, setClicked] = useState(false); // clicked 이 처음에는 안눌렸으니 false값을 기본으로 설정
 
     // 버튼 채우기 알고리즘
@@ -17,10 +17,10 @@ function DetailScores(){
     // 버튼이 눌린다.
     // 눌린 버튼의 번호가 주어진다.
     // 그 인덱스보다 작거나 같은수의 class를 채우기로 바꾼다
-    
-    function onClick(event){
+
+    function onClick(event) {
         // 버튼이 눌리는 id 체크
-        setClicked((value)=>value = event.target.id) // 버튼이 눌리면 setClicked를 이용해서 clicked의 값 업데이트
+        setClicked((value) => value = event.target.id) // 버튼이 눌리면 setClicked를 이용해서 clicked의 값 업데이트
     }
 
     // 키보드 이벤트
@@ -35,27 +35,27 @@ function DetailScores(){
             //console.log("click")
             temp.classList.add("clickedScore")
         }
-      }
-      
-      // useEffect() - 이걸 포함한 컴포넌트나 페이지가 불릴때 딱한번 실행되는 기능
-      useEffect(() => {
+    }
+
+    // useEffect() - 이걸 포함한 컴포넌트나 페이지가 불릴때 딱한번 실행되는 기능
+    useEffect(() => {
         window.addEventListener('keydown', handleKeyDown)
         //console.log("mount")
-        
+
         // 이 페이지를 종료할때 딱 한번 불러요
         return () => {
-          window.removeEventListener('keydown', handleKeyDown)
-          //console.log("unmount")
+            window.removeEventListener('keydown', handleKeyDown)
+            //console.log("unmount")
         }
-      })
+    })
 
 
     // useEffect를 사용해서 clicked의 값이 업데이트 될때마다 아래의 함수를 실행시킨다.
     useEffect(() => {
         ClickedCircle(); // 버튼이 눌릴떄마다 업데이트
-        }, [clicked]);
+    }, [clicked]);
 
-        // 함수 로직
+    // 함수 로직
     function ClickedCircle() {
         // 공이 총 5개뿐이니까  1,2,3,4,5의 id를 가져온다.
         for (let i = 1; i < 6; ++i) {
@@ -75,21 +75,21 @@ function DetailScores(){
                 temp.classList.add("clickedScore")
 
                 // 그 외에경우 -> 공에 있는 클래스 삭제
-            }else{
-                if(temp.classList.contains("clickedScore")){
-                temp.classList.remove("clickedScore") 
+            } else {
+                if (temp.classList.contains("clickedScore")) {
+                    temp.classList.remove("clickedScore")
                 }
             }
         }
     };
 
     // map을 이용해서 각 요일들의 index에 접근할 예정
-    const indexes = [1,2,3,4,5]
-    const Scores = indexes.map((value, index)=>(<div className="score" key={index} id={value} onClick={onClick} ></div>))
+    const indexes = [1, 2, 3, 4, 5]
+    const Scores = indexes.map((value, index) => (<div className="score" key={index} id={value} onClick={onClick} ></div>))
 
-    return(
+    return (
         <>
-         {Scores}
+            {Scores}
         </>
     )
 }
